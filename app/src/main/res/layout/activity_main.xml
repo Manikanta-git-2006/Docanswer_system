@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F9FAFB"
+    android:fillViewport="true"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <!-- Header Title -->
+        <TextView
+            android:id="@+id/tvHeaderTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="12dp"
+            android:text="@string/header_title"
+            android:textColor="#1F2937"
+            android:textSize="26sp"
+            android:textStyle="bold" />
+
+        <!-- Header Subtitle -->
+        <TextView
+            android:id="@+id/tvHeaderSubtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="24dp"
+            android:text="@string/header_subtitle"
+            android:textColor="#6B7280"
+            android:textSize="15sp" />
+
+        <!-- Container for Upload & Library -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:baselineAligned="false"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <!-- Upload Card -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="6dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_card_white"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/upload_documents"
+                    android:textColor="#374151"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="12dp"/>
+
+                <!-- Dashed Upload Zone Box -->
+                <LinearLayout
+                    android:id="@+id/btnUploadZone"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/bg_dashed_upload"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:gravity="center"
+                    android:minHeight="110dp"
+                    android:orientation="vertical"
+                    android:padding="8dp">
+
+                    <!-- Cloud Icon -->
+                    <ImageView
+                        android:layout_width="36dp"
+                        android:layout_height="36dp"
+                        android:src="@drawable/ic_cloud_upload"
+                        android:contentDescription="@string/upload_documents"
+                        app:tint="#9CA3AF" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:gravity="center"
+                        android:text="@string/upload_or_select_files"
+                        android:textColor="#4B5563"
+                        android:textSize="12sp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Document Library Card -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_card_white"
+                android:orientation="vertical"
+                android:padding="16dp"
+                android:minHeight="170dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/document_library"
+                    android:textColor="#374151"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="12dp"/>
+
+                <!-- File Items List Container -->
+                <LinearLayout
+                    android:id="@+id/llDocumentList"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <!-- Dynamic or static file items will go here -->
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Search Bar Section -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/etQuestion"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_edittext"
+                android:drawableStart="@drawable/ic_search"
+                android:drawablePadding="10dp"
+                android:hint="@string/type_your_question"
+                android:autofillHints="none"
+                android:inputType="textAutoCorrect|textShortMessage"
+                android:paddingHorizontal="14dp"
+                android:textColor="#111827"
+                android:textColorHint="#9CA3AF"
+                android:textSize="15sp" />
+
+            <Button
+                android:id="@+id/btnSearch"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:layout_marginStart="10dp"
+                android:backgroundTint="#1D61D2"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                android:text="@string/search"
+                android:textAllCaps="false"
+                android:textColor="#FFFFFF"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                app:cornerRadius="6dp" />
+        </LinearLayout>
+
+        <!-- Loading Indicator -->
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:indeterminate="true"
+            android:visibility="gone"
+            android:progressTint="#1D61D2"/>
+
+        <!-- Answer Section Container -->
+        <LinearLayout
+            android:id="@+id/llAnswerContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/bg_card_white"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:visibility="visible">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/answer"
+                android:textColor="#374151"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="12dp"
+                android:background="#E5E7EB" />
+
+            <TextView
+                android:id="@+id/tvAnswerText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:lineSpacingMultiplier="1.2"
+                android:text="@string/welcome_message"
+                android:textColor="#1F2937"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/tvSourcesLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/sources"
+                android:textColor="#4B5563"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:visibility="visible"/>
+
+            <!-- Flow-like horizontal sources layout -->
+            <HorizontalScrollView
+                android:id="@+id/hsvSources"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:scrollbars="none"
+                android:visibility="visible">
+
+                <LinearLayout
+                    android:id="@+id/llSourcesTags"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <!-- Source chips will be dynamically added here -->
+                </LinearLayout>
+            </HorizontalScrollView>
+
+            <!-- Bottom Actions Layout -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal"
+                style="?android:attr/buttonBarStyle"
+                android:weightSum="3">
+
+                <Button
+                    android:id="@+id/btnRegenerate"
+                    style="?android:attr/buttonBarButtonStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_marginEnd="4dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_btn_outline"
+                    android:text="@string/regenerate"
+                    android:textAllCaps="false"
+                    android:textColor="#4B5563"
+                    android:textSize="12sp" />
+
+                <Button
+                    android:id="@+id/btnViewDocument"
+                    style="?android:attr/buttonBarButtonStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_marginHorizontal="4dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="#1D61D2"
+                    android:insetTop="0dp"
+                    android:insetBottom="0dp"
+                    android:text="@string/view_document"
+                    android:textAllCaps="false"
+                    android:textColor="#FFFFFF"
+                    android:textSize="12sp"
+                    app:cornerRadius="6dp" />
+
+                <Button
+                    android:id="@+id/btnCopy"
+                    style="?android:attr/buttonBarButtonStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="4dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_btn_outline"
+                    android:text="@string/copy"
+                    android:textAllCaps="false"
+                    android:textColor="#4B5563"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>

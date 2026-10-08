@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">Docanswer_system</string>
+    <string name="header_title">Document Q&amp;A Assistant</string>
+    <string name="header_subtitle">Ask questions based on your documents.</string>
+    <string name="upload_documents">Upload Documents</string>
+    <string name="upload_or_select_files">Upload or Select Files</string>
+    <string name="document_library">Document Library</string>
+    <string name="type_your_question">Type your question…</string>
+    <string name="search">Search</string>
+    <string name="answer">Answer</string>
+    <string name="welcome_message">Welcome to Document Q&amp;A Assistant. Upload files or select from the library, then type your question above to search using local RAG pipeline.</string>
+    <string name="sources">Sources:</string>
+    <string name="regenerate">↺ Regenerate</string>
+    <string name="view_document">View Document</string>
+    <string name="copy">📋 Copy</string>
+    <string name="error_format">Error: %1$s</string>
+    <string name="source_format">%1$s (p. %2$d)</string>
+    <string name="no_documents">No documents uploaded.</string>
+    <string name="file_item_format">📄 %1$s</string>
+    <string name="copied_to_clipboard">Copied to clipboard</string>
+    <string name="feature_coming_soon">Document viewer feature coming soon!</string>
+    <string name="clipboard_label">Answer</string>
+</resources>
